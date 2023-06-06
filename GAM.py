@@ -8,8 +8,10 @@ mut = pd.read_csv('MUTATIONS.csv')
 mut = mut[mut.IS_SYNONYMOUS == False ]
 
 ENA_drugs = pd.read_csv('ENA_drug.csv', index_col = ['UNIQUEID']) 
-n_drugs = 13 #number of drugs 
 
+drug_names = ['AMIKACIN', 'BEDAQUILINE', 'CLOFAZIMINE', 'DELAMANID','ETHAMBUTOL', 'ETHIONAMIDE', 'ISONIAZID',\
+              'KANAMYCIN', 'LEVOFLOXACIN', 'LINEZOLID', 'MOXIFLOXACIN', 'RIFAMPICIN', 'RIFABUTIN']
+n_drugs = len(drug_names) #number of drugs 
 
 for P in [0]: #drop rate
      for remove_n in [0]: #how much do you want removed 
@@ -25,8 +27,7 @@ for P in [0]: #drop rate
                 matrix = np.random.choice([0, 1], size=(len(drugs), 13), p=[P, 1-P])
                 drugs = drugs*matrix
                 drugs = drugs.replace('','a') 
-                
-                
+               
                 y = []
                 for i in range(len(drugs)):
                     x = drugs.iloc[i,:] #taking resitence profile for each strain
@@ -38,7 +39,6 @@ for P in [0]: #drop rate
                 r = r.sort_values(ascending = False) #sort largest to smallest
                 indexs = r.index #list of unique resistence profile 
                 
-                drug_names = []
                 pval = {}
                 for i in range(len(indexs)): #filters for each drug and places them into approprate group 
                     S = indexs[i]
@@ -145,7 +145,7 @@ for P in [0]: #drop rate
                     MDbon = 0.05/len(MD_pval)
                     MD_pval = MD_pval[MD_pval <= MDbon]
                     MD_pval.dropna(axis=0, how ='all', inplace=True)
-                    MD_pval = MD_pval.set_axis(sorted(list(set(drug_names))),axis=1)
+                    MD_pval = MD_pval.set_axis(drug_names,axis=1)
                     MD_pval.to_csv(str(seed)+str(P*100)+str(len(bugs)-remove_n)+'.csv', index = True)
                 
                 else:
