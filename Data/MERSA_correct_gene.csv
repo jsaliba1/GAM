@@ -1,15 +1,3 @@
-﻿DRUG,MUT
-GEN,26:3550:aacA-ap:A:C
-PEN,26:2723:group_1512:A:C
-PEN,26:1966:mecA_1:A:C
-MET,26:1966:mecA_1:A:C
-FUS,26:4869:fusB:A:C
-FUS,26:3854:group_9879:A:C
-Ery,26:3312:ermA:A:C
-Ery,26:2750:ermC:A:C
-CLI,26:3312:ermA:A:C
-TET,26:5703:tetM:A:C
-TET,26:3916:tet:A:C
-TMP,26:3972:dfrA_2:A:C
-TMP,26:5261:dfrG:A:C
-TMP,dfrK
+version https://git-lfs.github.com/spec/v1
+oid sha256:1da79372bd19e4375aa9cf8a246b410765225ed604958461629a066c5183e140
+size 329
