@@ -11,6 +11,8 @@ Note: this pipeline was developed for a study on  *M. tuberculosis*  and  *S. au
 
 All data files to reproduce GAM results for *M. tuberculosis*  and  *S. aureus* are available on [Figshare](https://figshare.com/s/095554a3150519e0aa1d) in Data.zip. 
 
+**Must have at least 30GB free memory**
+
 Note: Data.zip should be unzipped in same path as code being executed. Some files must be unzipped twice. 
   
 
