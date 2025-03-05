@@ -9,12 +9,12 @@ Note: this pipeline was developed for a study on  *M. tuberculosis*  and  *S. au
 
 ## Data availability 
 
-All data files to reproduce GAM results for *M. tuberculosis*  and  *S. aureus* are available on [Figshare](https://figshare.com/s/095554a3150519e0aa1d) in Data.zip. 
+All data files to reproduce GAM results for *M. tuberculosis*  and  *S. aureus* are available on [Figshare](https://doi.org/10.6084/m9.figshare.28191398) in Data.zip. 
 
 **Must have at least 30GB free memory**
 
 Note: Data.zip should be unzipped in same path as code being executed. Some files must be unzipped twice. 
-  
+
 
 ## Code and Packages 
 
@@ -99,6 +99,21 @@ Rows represent significant mutations.
 Columns represent drugs.
 Values are p-values after statistical correction.
 
+## Data Summary 
+
+**MUTATIONS.csv** - Contains mutation data for all isolates collected by the Cryptic consortium. This file is used as an input for GAM. UNIQUEID (string): Identifier for the isolate. `MUTATION` (string): Mutation label. `GENE` (string): Gene where the mutation occurs. `IS_SYNONYMOUS` (Boolean): Indicates if the mutation is synonymous.
+###
+**ENA_drug.csv** - Stores resistance phenotypes for different drugs. It is used to define resistance groupings in GAM. `UNIQUEID` (string): Identifier for the isolate Drug columns (binary: Resistant/Susceptible): Resistance status for each drug.
+### 
+**bugs.csv** - Contains a list of isolates to be included in the study, ensuring they belong to a group relevant to the GAM analysis. `ID` (string): Identifier for the isolate. Group (string): Group assignment.
+### 
+**DST_SAMPLES.csv** - Metadata file providing lineage, site, and country of origin for each sample. Used to categorize isolates in the analysis. `UNIQUEID` (string): Identifier for the isolate. `LINEAGE` (string): Lineage classification. `SITE` (string): Sampling site. `COUNTRY` (string): Country of origin.
+### 
+**GAM_train.csv** - The main input file for the machine learning (ML) model, indicating the presence or absence of significant mutations identified by GAM. `UNIQUEID` (string): Identifier for the isolate. Mutation columns (binary: 1/0): Presence or absence of significant mutations.
+### 
+**Y9_train.csv** - Label file for the training dataset used in the ML model. Corresponds to GAM_train.csv. `UNIQUEID` (string): Identifier for the isolate.
+### 
+**LMM/** (Folder) - Stores results from the LMM analysis across different sample sizes. These results are used as input for calculating summary statistics and filtering significant mutations.
 
 ## Notes
 Ensure all input files are correctly formatted and placed in the working directory.
