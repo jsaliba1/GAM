@@ -1,0 +1,23 @@
+inputs:
+  mutation_file: MUTATIONS.csv
+  drug_file: ENA_drug.csv
+  bug_file: bugs.csv
+
+outputs:
+  scores_file: experiments/tb/output/gam_scores.csv
+  profile_pvalues_file: experiments/tb/output/gam_profile_pvalues.csv
+
+run:
+  mask_probability: 0.0
+  remove_n: 0
+  seed: 0
+
+schema:
+  mutation_sample_id_column: UNIQUEID
+  mutation_name_column: MUTATION
+  mutation_gene_column: GENE
+  mutation_is_synonymous_column: IS_SYNONYMOUS
+  bug_sample_id_column: ID
+  drug_sample_id_column: UNIQUEID
+  susceptible_label: S
+  resistant_label: R

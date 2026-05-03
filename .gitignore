@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+dist/
+build/
+*.egg-info/
+.DS_Store
+LMM/
+*.ipynb_checkpoints
+experiments/*/output/
+output/
