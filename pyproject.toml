@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gam-resistance"
+version = "1.0.0"
+description = "Group Association Model (GAM) tooling for microbial resistance analysis"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "GAM contributors" }
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=1.5",
+  "scipy>=1.10",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+lmm = [
+  "fastlmm>=0.6.12",
+  "pysnptools>=0.5.14",
+  "scikit-learn>=1.4",
+]
+dev = [
+  "black>=24.0",
+  "mypy>=1.8",
+  "pytest>=8.0",
+  "ruff>=0.4",
+  "pandas-stubs",
+  "types-PyYAML",
+  "scipy-stubs",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E203"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["gam", "lmm"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+
+[[tool.mypy.overrides]]
+module = [
+  "fastlmm.*",
+  "pysnptools.*",
+  "sklearn.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

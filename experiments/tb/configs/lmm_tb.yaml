@@ -1,0 +1,24 @@
+inputs:
+  mutation_file: MUTATIONS.csv
+  phenotype_file: ENA_drug.csv
+  isolate_file: bugs.csv
+  metadata_file: DST_SAMPLES.csv
+
+outputs:
+  output_dir: experiments/tb/output/lmm
+
+run:
+  sample_sizes: [179, 529, 879, 1579, 2279, 2979, 4329, 5779, 7179]
+  seed_count: 10
+  phenotype_value_map:
+    S: 0
+    R: 1
+
+schema:
+  mutation_sample_id_column: UNIQUEID
+  mutation_gene_column: GENE
+  mutation_name_column: MUTATION
+  phenotype_sample_id_column: UNIQUEID
+  isolate_sample_id_column: ID
+  metadata_sample_id_column: UNIQUEID
+  covariate_columns: [LINEAGE, SITE, COUNTRY]

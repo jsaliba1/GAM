@@ -1,0 +1,25 @@
+inputs:
+  mutation_file: path/to/mutations.csv
+  phenotype_file: path/to/phenotypes.csv
+  isolate_file: path/to/isolates.csv
+  metadata_file: path/to/metadata.csv
+
+outputs:
+  output_dir: output/lmm
+
+run:
+  sample_sizes: [1000]
+  seed_count: 1
+  phenotype_value_map:
+    S: 0
+    R: 1
+
+schema:
+  mutation_sample_id_column: UNIQUEID
+  mutation_gene_column: GENE
+  mutation_name_column: MUTATION
+  phenotype_sample_id_column: UNIQUEID
+  isolate_sample_id_column: ID
+  metadata_sample_id_column: UNIQUEID
+  phenotype_columns: []
+  covariate_columns: []
